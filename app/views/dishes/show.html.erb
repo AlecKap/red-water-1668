@@ -1,4 +1,4 @@
-<section id="dish_info">
+<div id=dish_info>
   <h1>Dish Name: <%= @dish.name %></h1>
   <h2>Name of Chef: <%= @dish.chef.name %></h2>
   <br>
@@ -8,6 +8,13 @@
   <% @dish.ingredients.each do |ingredient| %>
     <li><%= ingredient.name %></li>
   <% end %>
-  <ul>
-  <h4>Total Calories<%= @dish.total_calorie_count %></h4>
-</section>
+  </ul>
+  <h3>Total Calories: <%= @dish.total_calorie_count %></h3>
+</div>
+<div id=ingredient_form>
+  <%= form_with url: dish_path(@dish), local: true do |f| %>
+    <%= f.label :add_ingredient %>
+    <%= f.number_field :add_ingredient %>
+    <%= f.submit "Add Ingredient" %>
+  <% end %>
+</div>
