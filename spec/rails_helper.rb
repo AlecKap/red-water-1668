@@ -70,4 +70,42 @@ RSpec.configure do |config|
       with.library :rails
     end
   end
+
+  def test_data
+
+    @chef_1 = Chef.create!(name: "Alec")
+    @chef_2 = Chef.create!(name: "Luna")
+
+    @dish_1 = Dish.create!(name: 'Chicken Parm', description: 'Savor the flavor!', chef: @chef_1)
+    @dish_2 = Dish.create!(name: 'BLT', description: 'Refreshing!', chef: @chef_1)
+    @dish_3 = Dish.create!(name: 'Cheese Fries', description: 'Zesty!', chef: @chef_2)
+    @dish_4 = Dish.create!(name: 'Taco', description: 'Super flavor!', chef: @chef_2)
+
+    @ingredient_1 = Ingredient.create!(name: 'Chicken', calories: 50)
+    @ingredient_2 = Ingredient.create!(name: 'Bacon', calories: 100)
+    @ingredient_3 = Ingredient.create!(name: 'Lettuce', calories: 5)
+    @ingredient_4 = Ingredient.create!(name: 'Tomato', calories: 10)
+    @ingredient_5 = Ingredient.create!(name: 'Cheese', calories: 100)
+    @ingredient_6 = Ingredient.create!(name: 'Potatoes', calories: 25)
+
+    @dish_ingredient_1 = DishIngredient.create!(dish: @dish_1, ingredient: @ingredient_2)
+    @dish_ingredient_2 = DishIngredient.create!(dish: @dish_1, ingredient: @ingredient_4)
+    @dish_ingredient_3 = DishIngredient.create!(dish: @dish_1, ingredient: @ingredient_1)
+    @dish_ingredient_3 = DishIngredient.create!(dish: @dish_1, ingredient: @ingredient_5)
+
+    @dish_ingredient_5 = DishIngredient.create!(dish: @dish_2, ingredient: @ingredient_1)
+    @dish_ingredient_6 = DishIngredient.create!(dish: @dish_2, ingredient: @ingredient_3)
+    @dish_ingredient_6 = DishIngredient.create!(dish: @dish_2, ingredient: @ingredient_5)
+    @dish_ingredient_7 = DishIngredient.create!(dish: @dish_2, ingredient: @ingredient_6)
+
+    @dish_ingredient_5 = DishIngredient.create!(dish: @dish_3, ingredient: @ingredient_1)
+    @dish_ingredient_6 = DishIngredient.create!(dish: @dish_3, ingredient: @ingredient_4)
+    @dish_ingredient_6 = DishIngredient.create!(dish: @dish_3, ingredient: @ingredient_5)
+    @dish_ingredient_7 = DishIngredient.create!(dish: @dish_3, ingredient: @ingredient_3)
+    
+    @dish_ingredient_5 = DishIngredient.create!(dish: @dish_4, ingredient: @ingredient_2)
+    @dish_ingredient_6 = DishIngredient.create!(dish: @dish_4, ingredient: @ingredient_4)
+    @dish_ingredient_6 = DishIngredient.create!(dish: @dish_4, ingredient: @ingredient_5)
+    @dish_ingredient_7 = DishIngredient.create!(dish: @dish_4, ingredient: @ingredient_6)
+  end
 end
