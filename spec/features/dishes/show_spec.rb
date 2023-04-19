@@ -22,12 +22,6 @@ RSpec.describe 'dishes show page' do
       end
     end
 
-    # I see a form to add an existing Ingredient to that Dish
-    # When I fill in the form with the ID of an Ingredient that exists in the database
-    # And I click Submit
-    # Then I am redirected to that dish's show page
-    # And I see that ingredient is now listed. 
-
     it 'I see a form to add an existing Ingredient to that Dish,
       when I fill in the form with the ID of an Ingredient that exists
       in the database and I click Submit, I am redirected to that
@@ -44,7 +38,6 @@ RSpec.describe 'dishes show page' do
       fill_in :add_ingredient, with: @ingredient_6.id
       click_button "Add Ingredient"
       expect(current_path).to eq("/dishes/#{@dish_1.id}")
-      save_and_open_page
 
       within "#dish_info" do
         expect(page).to have_content(@ingredient_1.name)
